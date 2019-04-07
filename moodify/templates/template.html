@@ -1,0 +1,34 @@
+<!-- parent template that other templates inherit code from
+to connect pages we need to have a navigation menu -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask Parent Template</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
+
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="logo">Moodify</h1>
+        <strong><nav>
+          <ul class="menu">
+            <!--<li><a href="{{ url_for('home') }}">Home</a></li>
+             <li><a href="{{ url_for('player') }}">Player</a></li>-->
+          </ul>
+        </nav></strong>
+      </div>
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+
+ <!-- this is used for template extendting, which emans we can use same parts of html for different
+ pages in the web app. So we can use same info or layout in more than one place without repetiion,
+ other pages will extend the template page -->
+
+  </body>
+</html>

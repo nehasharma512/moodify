@@ -1,0 +1,18 @@
+name: moodify
+channels:
+- peterjc123
+- defaults
+dependencies:
+- python=3.5.5
+- scipy
+- pip:
+  - keras==2.0.5
+  - tensorflow==1.1.0
+  - pandas==0.19.1
+  - numpy==1.14.1
+  - h5py==2.7.0
+  - statistics
+  - opencv-python==3.2.0.8
+  - Pillow==5.0.0
+  - matplotlib
+  - flask

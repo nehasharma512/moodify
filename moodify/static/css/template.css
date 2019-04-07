@@ -1,0 +1,14 @@
+body {
+  font-family: 'Crafty Girls', sans-serif;
+  background-image: url("../bg2.jpg");
+  background-size: cover;
+}
+
+.logo {
+  font-style:italic,bold;
+  text-align: center;
+  padding: 10px;
+  color: white;
+}
+
+

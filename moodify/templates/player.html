@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Music Player</title>
+		<!-- Include Resource Stylesheets -->
+		<link href='https://fonts.googleapis.com/css?family=Crafty Girls' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="../static/css/foundation.min.css"/>
+
+
+		<!--
+			Include Resource Javascript
+
+			NOTE: These are for handling things outside of the scope of AmplitudeJS
+		-->
+		<script type="text/javascript" src="../static/js/jquery.js"></script>
+		<script type="text/javascript" src="../static/js/foundation.min.js"></script>
+
+		<!-- Include Amplitude JS -->
+		<script type="text/javascript" src="../static/js/amplitude.js"></script>
+
+		<!--
+			Include UX functions JS
+
+			NOTE: These are for handling things outside of the scope of AmplitudeJS
+		-->
+		<script type="text/javascript" src="../static/js/functions.js"></script>
+
+		<!-- Include Style Sheet -->
+		<link rel="stylesheet" type="text/css" href="../static/css/app.css"/>
+	</head>
+	<body>
+
+
+
+		<div class="grid-x" id="blue-playlist-container">
+			<div class="large-10 medium-12 small-11 large-centered medium-centered small-centered cell" id="amplitude-player">
+				<div class="grid-x">
+				  <div class="large-6 medium-6 small-12 cell" id="amplitude-left">
+				    <img amplitude-song-info="cover_art_url" amplitude-main-song-info="true"/>
+				    <div id="player-left-bottom">
+				      <div id="time-container">
+				        <span class="current-time">
+				          <span class="amplitude-current-minutes" amplitude-main-current-minutes="true"></span>:<span class="amplitude-current-seconds" amplitude-main-current-seconds="true"></span>
+				        </span>
+				        <div id="progress-container">
+				          <input type="range" class="amplitude-song-slider" amplitude-main-song-slider="true"/>
+				          <progress id="song-played-progress" class="amplitude-song-played-progress" amplitude-main-song-played-progress="true"></progress>
+				          <progress id="song-buffered-progress" class="amplitude-buffered-progress" value="0"></progress>
+				        </div>
+				        <span class="duration">
+				          <span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
+				        </span>
+				      </div>
+
+				      <div id="control-container">
+				        <div id="repeat-container">
+				          <div class="amplitude-repeat" id="repeat"></div>
+				          <div class="amplitude-shuffle amplitude-shuffle-off" id="shuffle"></div>
+				        </div>
+
+				        <div id="central-control-container">
+				          <div id="central-controls">
+				            <div class="amplitude-prev" id="previous"></div>
+				            <div class="amplitude-play-pause" amplitude-main-play-pause="true" id="play-pause"></div>
+				            <div class="amplitude-next" id="next"></div>
+				          </div>
+				        </div>
+
+				        <div id="volume-container">
+				          <div class="volume-controls">
+				            <div class="amplitude-mute amplitude-not-muted"></div>
+				            <input type="range" class="amplitude-volume-slider"/>
+				            <div class="ms-range-fix"></div>
+				          </div>
+				          <div class="amplitude-shuffle amplitude-shuffle-off" id="shuffle-right"></div>
+				        </div>
+				      </div>
+
+
+
+				      <div id="meta-container">
+				        <span amplitude-song-info="name" amplitude-main-song-info="true" class="song-name"></span>
+
+				        <div class="song-artist-album">
+				          <span amplitude-song-info="artist" amplitude-main-song-info="true"></span>
+				          <span amplitude-song-info="album" amplitude-main-song-info="true"></span>
+				        </div>
+				      </div>
+				    </div>
+				  </div>
+
+
+				  <div class="large-6 medium-6 small-12 cell" id="amplitude-right">
+
+                     <h1 style="font-family:Crafty Girls;color:crimson">
+                        Feeling {{ emotion }} ?.. Listen to some music..
+						 {% if emotion == "happy" %}
+						 <img src="../static/smile.gif" alt="HTML5 Icon" style="width:500px;height:500px;">
+						 {% elif emotion == "neutral" %}
+						 <img src="../static/smile.gif" alt="HTML5 Icon" style="width:500px;height:500px;">
+						 {% elif emotion == "sad" %}
+						 <img src="../static/sad.gif" alt="HTML5 Icon" style="width:500px;height:500px;">
+						 {% elif emotion == "angry" %}
+						 <img src="../static/angry.gif" alt="HTML5 Icon" style="width:500px;height:500px;">
+						 {% endif %}
+                      </h1>
+				  </div>
+				</h1>
+			</div>
+		</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var emm = {{ emotion| tojson }}; //jinja2 notation
+
+		if(emm=="happy" | emm=="neutral") {
+			var playlist = [
+				{
+					"name": "Happy",
+					"artist": "Pharrell Williams",
+					"album": "Girl",
+					"url": "../static/data/music/happy.mp3",
+					"cover_art_url": "../static/data/img/album-art/happy.jpg"
+				},
+				{
+					"name": "Sky Full Of Stars",
+					"artist": "Coldplay",
+					"album": "Ghost Stories",
+					"url": "../static/data/music/sky.mp3",
+					"cover_art_url": "../static/data/img/album-art/sky.jpg"
+				},
+				{
+					"name": "Happy Song",
+					"artist": "Alex The Astronaut",
+					"album": "Single Song",
+					"url": "../static/data/music/happy3.mp3",
+					"cover_art_url": "../static/data/img/album-art/happy3.jpg"
+				}
+			];
+		}
+		else if(emm=="sad"){
+			var playlist = [
+				{
+					"name": "Scientist",
+					"artist": "Coldplay",
+					"album": "A Rush Of Blood To The Head",
+					"url": "../static/data/music/scientist.mp3",
+					"cover_art_url": "../static/data/img/album-art/scientist.jpg"
+				},
+				{
+					"name": "Video Games",
+					"artist": "Lana Del Rey",
+					"album": "Born To Die",
+					"url": "../static/data/music/videogames.mp3",
+					"cover_art_url": "../static/data/img/album-art/videogames.jpg"
+				},
+				{
+					"name": "Too Good at Goddbyes",
+					"artist": "Sam Smith",
+					"album": "Single Song",
+					"url": "../static/data/music/sad3.mp3",
+					"cover_art_url": "../static/data/img/album-art/sad3.jpg"
+				}
+			];
+		}
+		else if(emm=="angry") {
+			var playlist = [
+				{
+					"name": "Somewhere Over The Rainbow",
+					"artist": "Israel IZ",
+					"album": "Single Song",
+					"url": "../static/data/music/calm2.mp3",
+					"cover_art_url": "../static/data/img/album-art/calm2.jpg"
+				},
+				{
+					"name": "Please Dont",
+					"artist": "Mxmtoon",
+					"album": "Single Song",
+					"url": "../static/data/music/calm1.mp3",
+					"cover_art_url": "../static/data/img/album-art/calm1.jpg"
+				}
+			];
+		}
+		Amplitude.init({
+			"songs": playlist
+		});
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+

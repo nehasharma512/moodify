@@ -1,0 +1,2 @@
+,artist,id,paths,title,acousticness,danceability,energy,instrumentalness,key,livenepathsss,loudness,mode,speechiness,tempo,time_signature
+0,['Justin Bieber'],09CtPGIpYB4BrO8qb1RGsF,/home/nsa84/amoc-project/components/PyMusicMood/test_data/Justin-Bieber-Sorry-PURPOSE-The-Movement.mp3,['Sorry'],0.0865,0.605,0.768,0,0,0.308,-3.724,0,0.0476,100.209,4

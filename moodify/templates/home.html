@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Moodify</title>
+      <link href='https://fonts.googleapis.com/css?family=Crafty Girls' rel='stylesheet'>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cam.css') }}">
+
+
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+
+    <div id= "container">
+      <video autoplay="true" id="videoElement"> </video>
+      <button id="snap" onclick="snap()">Snap Photo</button>
+        <canvas id="canvas" width="340" height="190"></canvas></div>
+
+        <form class="buttons row" action="/music" method="post" style="margin-left: 875px;margin-top: 185px;">
+        <button type="submit" id="play">
+          <i class="button">Songs</i>
+        </button>
+      </form>
+    <script src="/static/js/cam.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {% endblock %}
+  </body>
+</html>
