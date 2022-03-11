@@ -209,6 +209,6 @@ numpy==1.14.1
 h5py==2.7.0
 statistics
 opencv-python==3.2.0.8
-Pillow==5.0.0
+Pillow==9.0.1
 matplotlib
 flask
